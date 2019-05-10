@@ -4,7 +4,7 @@
  * Date: 01/05/2019
  * Purpose: List of Staff
  */
-require "bdConnectionCHR.php";
+require "dbConnectionCHR.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,6 +22,9 @@ require "bdConnectionCHR.php";
 	</Style>
 </head>
 <body>
+	<?php
+		include('menu.php');
+	?>
 	<h3 align="center">Staff List</h3>
     <table width="100%">
         <tr>
@@ -62,5 +65,8 @@ require "bdConnectionCHR.php";
         ?>
     </table>
     <p><a href="new-staff.php">New Staff Member</a></p>
+	<?php
+			include('footer.php');
+		?>
 </body>
 </html>
