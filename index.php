@@ -19,25 +19,17 @@
 	
 </head>
 <body>
-	<?php
-		include('menu.php');
-	?>
-		
+<?php
+	include('menu.php');
+?>
 	
-    <form action="staff-list.php" method="post">
+<form action="staff-list.php" method="post">
 	
-        <span>Book Type:</span>
-            <select name="book_type">
-                <option value="All">All</option>
-                <option value="S">Soft cover</option>
-                <option value="H">Hard cover</option>
-                <option value="D">Digital</option>
-            </select>
-        <input type="submit" value="Search" class="bottom>
+
 	
-		<?php
-			include('footer.php');
-		?>
-    </form>
+<?php
+	include('footer.php');
+?>
+</form>
 </body>
 </html>

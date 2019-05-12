@@ -43,7 +43,7 @@
 		<a class="nav-link" href="ContactUs.html">Contact Us</a>
 		</li>
 		<li class="nav-item">
-		<a class="nav-link" href="Login.html">Login</a>
+		<a class="nav-link" href="Login.html" data-toggle="modal" data-target="#loginModal" data-whatever="@mdo">Login</a>
 		</li>
 	</ul>
 	<form class="form-inline my-2 my-lg-0">
@@ -53,3 +53,52 @@
   </div>
 </nav>
 	
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+	<form class="needs-validation" novalidate>
+      <div class="modal-body">
+			<div class="form-group">
+				<label for="exampleInputEmail1">Email address</label>
+				<input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputPassword1">Password</label>
+				<input type="password" class="form-control" id="InputPassword1" placeholder="Password" required>
+				<small id="emailHelp" class="form-text text-muted">Don't share your password with anyone else.</small>
+			</div>       
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		<button class="btn btn-primary" type="submit">Initiate Session</button>
+      </div>
+    </div>
+	 </form>
+<script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>
+  </div>
+</div>
