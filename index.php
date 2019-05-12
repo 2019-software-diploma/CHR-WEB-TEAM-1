@@ -19,7 +19,7 @@
 </head>
 <body>
 <?php
-	include('menu.php');
+	include('web/menu.php');
 ?>
 	
 <div class="container">
@@ -28,7 +28,7 @@ This is the main page!!!
 
 </div>	
 <?php
-	include('footer.php');
+	include('web/footer.php');
 ?> 
 
 </body>
