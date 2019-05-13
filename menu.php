@@ -62,23 +62,22 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-	<form class="needs-validation" novalidate>
+	<form class="needs-validation" novalidate action="login.php" method="POST">
       <div class="modal-body">
 			<div class="form-group">
-				<label for="exampleInputEmail1">Email address</label>
-				<input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+				<label for="InputEmail1">Email address</label>
+				<input type="email" class="form-control" name="InputEmail" id="InputEmail" aria-describedby="emailHelp" placeholder="Enter email" required>
 			</div>
 			<div class="form-group">
-				<label for="exampleInputPassword1">Password</label>
-				<input type="password" class="form-control" id="InputPassword1" placeholder="Password" required>
-				<small id="emailHelp" class="form-text text-muted">Don't share your password with anyone else.</small>
+				<label for="InputPassword1">Password</label>
+				<input type="password" class="form-control" name="InputPassword" id="InputPassword" placeholder="Password" maxlength="6" required>
+				<small id="emailHelp" class="form-text text-muted">Only 6 characters. Don't share your password with anyone else.</small>
 			</div>       
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 		<button class="btn btn-primary" type="submit">Initiate Session</button>
       </div>
-    </div>
 	 </form>
 <script>
 // Example starter JavaScript for disabling form submissions if there are invalid fields
@@ -100,5 +99,6 @@
   }, false);
 })();
 </script>
+	  </div>
   </div>
 </div>

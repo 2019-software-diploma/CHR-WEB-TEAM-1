@@ -1,12 +1,8 @@
 <?php
-/**
- * Author: Edgar Hernandez
- * Date: 01/05/2019
- * Purpose: Main page of the Web Portal
- */
- session_start();
-// print_r($_SESSION);
+session_start();
+session_unset();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,15 +17,20 @@
 <?php
 	include('menu.php');
 ?>
-	
+
 <div class="container">
 
-This is the main page!!!
+
+
+<h1>Thanks for visiting Caprivi!</h1>
+<h2>You have now logged off.</h2>
 
 </div>	
+
 <?php
 	include('footer.php');
-?> 
-
+?>
 </body>
 </html>
+
+
