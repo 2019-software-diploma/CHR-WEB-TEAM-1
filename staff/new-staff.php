@@ -10,12 +10,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Caprivi Healthcare Research</title>
-	<link href="css/style.css" rel="stylesheet" type="text/css" />
-	<script type="text/javascript" src="js/general.js"></script>
+	<link href="../web/staff/css/style.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="../web/staff/js/general.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
 <body>
 	<h3 align="center">New Staff Member</h3>
-    <form action="insert-book.php" method="post">
+    <form action="../web/staff/insert-book.php" method="post">
 		<div>
 		  <table width="650" border="0" align="center" cellpadding="4" cellspacing="4">
             <tr>

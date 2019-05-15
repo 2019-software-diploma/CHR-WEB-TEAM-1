@@ -11,7 +11,7 @@ require "dbConnectionCHR.php";
 <head>
     <meta charset="UTF-8">
     <title>Caprivi Healthcare Research</title>
-    <link href="css/Style.css" rel="stylesheet" type="text/css" />
+    <link href="../web/staff/css/Style.css" rel="stylesheet" type="text/css" />
 	<Style>
 	table, th, td {
 		border: 1px solid black;
@@ -23,7 +23,7 @@ require "dbConnectionCHR.php";
 </head>
 <body>
 	<?php
-		include('menu.php');
+		include('../web/staff/menu.php');
 	?>
 	<h3 align="center">Staff List</h3>
     <table width="100%">
@@ -66,7 +66,7 @@ require "dbConnectionCHR.php";
     </table>
     <p><a href="new-staff.php">New Staff Member</a></p>
 	<?php
-			include('footer.php');
+			include('../web/staff/footer.php');
 		?>
 </body>
 </html>
