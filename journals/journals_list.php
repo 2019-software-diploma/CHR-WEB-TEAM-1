@@ -33,50 +33,41 @@
 
         $sql = "SELECT j.Journal_Number,
                     j.Journal_Name,
-                    (SELECT jt.Description FROM journal_types jt
-                        WHERE jt.Book_type = b.Booktype) AS Journal_Type,
+                    (SELECT jt.Journal_Type_Desc FROM journal_types jt
+                        WHERE jt.Journal_Type_Code = j.Journal_Type) AS Journal_Type,
                     j.Publication_Date,
-                    (SELECT s.First_Name || ' ' || s.Surname FROM staff s
+                    (SELECT s.First_Name FROM staff s
                         WHERE s.Staff_Number = j.Staff_Number) AS Journal_Author
                     FROM journals j
-                    WHERE j.Staff_Number = ".$_SESSION['userId '];
+                    WHERE j.Staff_Number = ".$_SESSION['staffNumber'];
 
-        //append where clause in case of book type is not All
-        if ($book_type != 'A')
-            $sql = $sql." WHERE Booktype = '".$book_type."' ORDER BY BookID";
-        
         $result = mysqli_query($conn, $sql) or die("Error reading books ".mysqli_error($conn));
 
         //build result html
-        echo "<table>";
-        echo "<tr><th>Publication</th>
-                    <th>ISBN</th>
-                    <th>Title</th>
+        echo "<table class='table'>";
+        echo "<thead class='thead-dar'><tr><th>Publication</th>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Date</th>
                     <th>Author</th>
-                    <th>Book Type</th>
-                    <th>Price</th>
                     <th>Action</th></tr>";
 
         //dynamic book list
         while ($row = mysqli_fetch_array($result))
         {
-            echo "<tr>";
-            echo "<td>$row[BookID]</td>";
-            echo "<td>$row[ISBN]</td>";
-            echo "<td>$row[Title]</td>";
-            echo "<td>$row[Author]</td>";
-            echo "<td>$row[Booktype]</td>";
-            if($row[5] != 0.0)
-                echo "<td>AU$$row[Price]</td>";
-            else
-                echo "<td>-</td>";
-            echo "<td ><a href=editbook.php?book_id=$row[BookID]>Edit</a> " .
-            "<a href=deletebook.php?book_id=$row[BookID]>Delete</a></td>";
+            echo "</thead><tr>";
+            echo "<td>$row[Journal_Number]</td>";
+            echo "<td>$row[Journal_Name]</td>";
+            echo "<td>$row[Journal_Type]</td>";
+            echo "<td>$row[Publication_Date]</td>";
+            echo "<td>$row[Journal_Author]</td>";
+            echo "<td ><a class='btn btn-outline-success p-1' href=journals_edit.php?journal_id=$row[Journal_Number]>Edit</a> " .
+            "<a class='btn btn-outline-success p-1' href=journals_delete.php?journal_id=$row[Journal_Number]>Delete</a></td>";
             echo "</tr>";
         }
 
         echo "</table>";
-        echo "<br><br><a href=newbook.html>New book</a>";
+        echo "<br><br><a class='btn btn-primary' href=journals_new.php>New Publication</a>";
 
         //close db connection
         mysqli_close($conn);
