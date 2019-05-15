@@ -16,7 +16,7 @@
 <?php
 	if (isset($_SESSION['userName'])) {
 		$username = $_SESSION['userName'];
-		echo "User in session: $username &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='logoff.php'>Click Here to Log off</a>";
+		echo "User in session: $username &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='../login/logoff.php'>Click Here to Log off</a>";
 	}
 	else
 	{

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-	<a class="navbar-brand" href="/php/chr_portal/index.php"><img src="/php/chr_portal/images/logo.png"/></a>
+	<a class="navbar-brand" href="../main/index.php"><img src="../images/logo.png"/></a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	</button>
@@ -11,11 +11,11 @@
 		  Research
 		</a>
 		<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-		  <a class="dropdown-item" href="/php/chr_portal/web/content/CloudResearch.html">Cloud Research</a>
-		  <a class="dropdown-item" href="/php/chr_portal/web/content/CloudComputing.html">What is Cloud Computing</a>
-		  <a class="dropdown-item" href="/php/chr_portal/web/content/CloudTypes.html">Cloud Types</a>
+		  <a class="dropdown-item" href="../content/CloudResearch.html">Cloud Research</a>
+		  <a class="dropdown-item" href="../content/CloudComputing.html">What is Cloud Computing</a>
+		  <a class="dropdown-item" href="../content/CloudTypes.html">Cloud Types</a>
 		  <div class="dropdown-divider"></div>
-		  <a class="dropdown-item" href="/php/chr_portal/web/content/ResearchProject.html">Research Project</a>			  
+		  <a class="dropdown-item" href="../content/ResearchProject.html">Research Project</a>			  
 		</div>
 	  </li>
 	  <li class="nav-item dropdown">
@@ -62,7 +62,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-	<form class="needs-validation" novalidate action="/php/chr_portal/web/login/login.php" method="POST">
+	<form class="needs-validation" novalidate action="../login/login.php" method="POST">
       <div class="modal-body">
 			<div class="form-group">
 				<label for="InputEmail1">Email address</label>
