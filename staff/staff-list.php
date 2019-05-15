@@ -4,42 +4,50 @@
  * Date: 01/05/2019
  * Purpose: List of Staff
  */
-require "dbConnectionCHR.php";
+	session_start();
+	
+	//If session variable has done we move to log-off page.
+	if (!isset($_SESSION['userName'])) {
+		header("Location: ../login/logoff.php?sessiondone=1");
+		die();	
+	}
+	
+	require "../main/dbConnectionCHR.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Caprivi Healthcare Research</title>
-    <link href="../web/staff/css/Style.css" rel="stylesheet" type="text/css" />
-	<Style>
-	table, th, td {
-		border: 1px solid black;
-	}
-	th {
-		    background: lightgray;
-	}
-	</Style>
+	<link rel="stylesheet" href="../css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="../js/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="../js/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<script src="../js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>	
 </head>
 <body>
-	<?php
-		include('../web/staff/menu.php');
-	?>
-	<h3 align="center">Staff List</h3>
-    <table width="100%">
+<?php
+	include('../main/menu.php');
+?>
+	<h4 align="center">Staff List</h4>
+	<div align="center" width="90%"></div>
+    <table class="table table-striped table-sm" align="center">
+		<thead class="thead-dark">
         <tr>
-            <th>ID</th>
-            <th>First_Name</th>
-            <th>Position</th>
-            <th>Gender</th>
-            <th>Date of Birth</th>
-            <th>Department</th>
-            <th>Office Number</th>
-			<th>Branch</th>
-			<th>Actions</th>
+            <th scope="col">ID</th>
+            <th scope="col">First_Name</th>
+            <th scope="col">Position</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Date of Birth</th>
+            <th scope="col">Department</th>
+            <th scope="col">Office Number</th>
+			<th scope="col">Branch</th>
+			<th scope="col">Email</th>
+			<th scope="col">Actions</th>
         </tr>
+		</thead>
+		<tbody>
         <?php
-
+		
 		$SQL = "SELECT * FROM staff";
         $result = mysqli_query($conn, $SQL);
         if (mysqli_num_rows($result) > 0) {
@@ -53,20 +61,24 @@ require "dbConnectionCHR.php";
                 echo "<td>" . $row['Department'] . "</td>";
                 echo "<td>" . $row['Office_Number'] . "</td>";
                 echo "<td>" . $row['Branch_Number'] . "</td>";
+                echo "<td>" . $row['Email'] . "</td>";	
                 echo "<td align=center>
 					<a href=\"edit-book.php?bookid=" . $row['Staff_Number'] . "\">Edit</a>&nbsp;&nbsp;&nbsp;
 					<a href=\"delete-staff.php?bookid=" . $row['Staff_Number'] . "\">Delete</a>
 					</td>";
                 echo "</tr>";
             }
-        } else {
+        } 
+		else 
+		{
             echo "0 Results";
         }
         ?>
+		</tbody>
     </table>
-    <p><a href="new-staff.php">New Staff Member</a></p>
-	<?php
-			include('../web/staff/footer.php');
-		?>
+    <p align="center"><a href="new-staff.php">New Staff Member</a></p>
+<?php
+	include('../main/footer.php');
+?>
 </body>
 </html>
