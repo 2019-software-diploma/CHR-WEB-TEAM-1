@@ -24,17 +24,15 @@
 
 <div class="container">
     <?php
-        //read form field and die it it's empty
-        if (empty($_GET['book_type']))
-            die("You must select a Book Type!");
-
-        $book_type = $_GET['book_type'];
+        //read session field and die it it's empty
+        if (empty($_SESSION['userName']))
+            die("You must log in!");
 
         //open db connection
-        require 'dbConnectBooks.php';
+        require 'dbConnectionCHR.php';
 
         //select book type description
-        $sql_btd = "SELECT bt.Description FROM BookTypes bt
+        $sql_btd = "SELECT bt.Description FROM journals jn
         WHERE bt.Book_type = '".$book_type."'";
 
         $result = mysqli_query($conn, $sql_btd) or die("Error reading book types ".mysqli_error($conn));
@@ -98,8 +96,8 @@
     ?>
     </div>	
 
-    <?php
-        include('../footer.php');
-    ?>
-    </body>
-    </html>
+<?php
+	include('../footer.php');
+?>
+</body>
+</html>
