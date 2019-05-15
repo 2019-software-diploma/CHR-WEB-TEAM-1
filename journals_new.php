@@ -1,9 +1,8 @@
 <!-- *********************************************************************** -->
 <!-- Programmer: Marco S. Chalub -->
-<!-- Date: 02 May 2018 -->
 <!-- Software: Microsoft Visual Studio Code -->
 <!-- Platform: macOS Mojave 10.14.4 -->
-<!-- Purpose: Assessment 3 -->
+<!-- Purpose: Software Project -->
 <!-- *********************************************************************** -->
 <html>
 
