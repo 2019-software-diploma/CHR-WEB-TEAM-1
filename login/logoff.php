@@ -1,6 +1,7 @@
 <?php
-session_start();
-session_unset();
+	session_start();
+	//Remove all session varibles
+	session_unset();
 ?>
 
 <!DOCTYPE html>
@@ -20,10 +21,19 @@ session_unset();
 
 <div class="container">
 
-
-
 <h1>Thanks for visiting Caprivi!</h1>
-<h2>You have now logged off.</h2>
+
+<?php
+	if (!empty($_GET['sessiondone']))
+	{
+		echo("<h5>Session has expired, please log in again.</h5>");
+	}
+	else
+	{
+		echo("<h5>You have now logged off.</h5>");
+	}
+?>
+
 
 </div>	
 

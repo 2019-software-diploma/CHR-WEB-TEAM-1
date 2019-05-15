@@ -16,7 +16,11 @@
 <?php
 	if (isset($_SESSION['userName'])) {
 		$username = $_SESSION['userName'];
-		echo "User in session: $username &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href='../login/logoff.php'>Click Here to Log off</a>";
+		echo "User in session: $username &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+		echo "&nbsp;&nbsp;&nbsp;";
+		echo "<a href='../login/login.php?manageportal=1'>Manage Portal</a>";
+		echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+		echo "<a href='../login/logoff.php'>Click Here to Log off</a>";
 	}
 	else
 	{
