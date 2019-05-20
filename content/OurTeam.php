@@ -24,7 +24,8 @@
 	
 <div class="container">
 
-Our Team
+<p>Our Team</p>
+<p>The CHR provides healthcare advice for health professionals and governments. In addition, the CHR is involved in providing ICT solutions in remote clinics particularly in developing countries. Currently, the CHR has approximately 25 research staff members that supports the CHR. </p>
 
 </div>	
 <?php
