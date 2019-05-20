@@ -24,7 +24,9 @@
 	
 <div class="container">
 
-Cloud Computing
+<p>Cloud computing is an innovative paradigm that provides users with on-demand access to a shared pool of configurable computing resources such as servers, storage, and applications. 
+The term “cloud” is a metaphor for the internet. In the past, all of your applications and software had to be on a computer or server that you could only access at a specific location. With the introduction of the cloud, people could access their programs and information using the internet as the conduit. This principle also applies to data storage. Rather than keeping folders full of critical work on your computers and servers, that data can be stored remotely and backed up to the cloud.</p>
+
 
 </div>	
 <?php
