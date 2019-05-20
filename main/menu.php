@@ -11,11 +11,11 @@
 		  Research
 		</a>
 		<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-		  <a class="dropdown-item" href="../content/CloudResearch.html">Cloud Research</a>
-		  <a class="dropdown-item" href="../content/CloudComputing.html">What is Cloud Computing</a>
-		  <a class="dropdown-item" href="../content/CloudTypes.html">Cloud Types</a>
+		  <a class="dropdown-item" href="../content/CloudResearch.php">Cloud Research</a>
+		  <a class="dropdown-item" href="../content/CloudComputing.php">What is Cloud Computing</a>
+		  <a class="dropdown-item" href="../content/CloudTypes.php">Cloud Types</a>
 		  <div class="dropdown-divider"></div>
-		  <a class="dropdown-item" href="../content/ResearchProject.html">Research Project</a>			  
+		  <a class="dropdown-item" href="../content/ResearchProject.php">Research Project</a>			  
 		</div>
 	  </li>
 	  <li class="nav-item dropdown">
@@ -35,15 +35,15 @@
 		  About CHR
 		</a>
 		<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-		  <a class="dropdown-item" href="../AboutCHR.html">About CHR</a>
-		  <a class="dropdown-item" href="../OurTeam.html">Our Team</a>	 
+		  <a class="dropdown-item" href="../content/AboutCHR.php">About CHR</a>
+		  <a class="dropdown-item" href="../content/OurTeam.php">Our Team</a>	 
 		</div>
 	   </li>
 		<li class="nav-item">
-		<a class="nav-link" href="../ContactUs.html">Contact Us</a>
+		<a class="nav-link" href="../content/ContactUs.php">Contact Us</a>
 		</li>
 		<li class="nav-item">
-		<a class="nav-link" href="../Login.html" data-toggle="modal" data-target="#loginModal" data-whatever="@mdo">Login</a>
+		<a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal" data-whatever="@mdo">Login</a>
 		</li>
 	</ul>
 	<form class="form-inline my-2 my-lg-0">
