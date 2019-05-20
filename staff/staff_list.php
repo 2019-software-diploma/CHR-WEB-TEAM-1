@@ -19,6 +19,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Caprivi Healthcare Research</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -28,6 +29,9 @@
 <?php
 	include('../main/menu.php');
 ?>
+
+<div class="container-fluid" >
+
 	<h4 align="center">Staff List</h4>
 	<div align="center" width="90%"></div>
     <table class="table table-striped table-sm" align="center">
@@ -63,8 +67,9 @@
                 echo "<td>" . $row['Branch_Number'] . "</td>";
                 echo "<td>" . $row['Email'] . "</td>";	
                 echo "<td align=center>
-					<a href=\"edit-book.php?bookid=" . $row['Staff_Number'] . "\">Edit</a>&nbsp;&nbsp;&nbsp;
-					<a href=\"delete-staff.php?bookid=" . $row['Staff_Number'] . "\">Delete</a>
+                    <a class='btn btn-outline-warning btn-sm' href=\"staff_edit.php?staffnumber=" . $row['Staff_Number'] . "\">Edit</a>&nbsp;&nbsp;&nbsp;
+                    
+                    <a class='btn btn-outline-danger btn-sm' href=\"staff_delete.php?staffnumber=" . $row['Staff_Number'] . "\" onclick=\"return confirm('Are you sure?');\">Delete</a>&nbsp;&nbsp;&nbsp;
 					</td>";
                 echo "</tr>";
             }
@@ -76,7 +81,9 @@
         ?>
 		</tbody>
     </table>
-    <p align="center"><a href="new-staff.php">New Staff Member</a></p>
+    <a href="staff_new.php" class="btn btn-primary btn-sm">New Staff Member</a>
+
+</div>
 <?php
 	include('../main/footer.php');
 ?>

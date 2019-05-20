@@ -16,7 +16,7 @@
 	include('../main/menu.php');
 ?>
 
-<div class="container">
+<div class="container-fluid">
 <?php
 	// Validate entered password with SHAed password in the database
 	// If they match, set the Session variable: username
@@ -62,7 +62,7 @@
 				echo "<h2>You have successfully logged in</h2>";
 				echo "<br>";
 				echo "<h3>Please select an option to manage this site:</h3>";
-				echo "<h4><a href='../staff/staff-list.php'>Staff</a></h4>";
+				echo "<h4><a href='../staff/staff_list.php'>Staff</a></h4>";
 			}
 			else
 			{
@@ -75,7 +75,7 @@
 		echo "<br/>";		
 		echo "<br>";
 		echo "<h3>Please select an option to manage this site:</h3>";
-		echo "<h4><a href='../staff/staff-list.php'>Staff</a></h4>";
+		echo "<h4><a href='../staff/staff_list.php'>Staff</a></h4>";
 	}
 	
 
