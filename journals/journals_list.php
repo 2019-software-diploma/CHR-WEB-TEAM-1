@@ -16,6 +16,11 @@
 	<script src="../js/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="../js/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script src="../js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>	
+    <style>
+        .btn-primary, .btn-secondary, .btn-success {
+            margin-bottom: 50px;
+        }
+    </style>
 </head>
 <body>
 <?php
@@ -45,7 +50,8 @@
 
         //build result html
         echo "<table class='table'>";
-        echo "<thead class='thead-dar'><tr><th>Publication</th>
+        echo "<thead class='thead-dark'><tr>
+                    <th>Publication</th>
                     <th>Name</th>
                     <th>Type</th>
                     <th>Date</th>
@@ -59,23 +65,45 @@
             echo "<td>$row[Journal_Number]</td>";
             echo "<td>$row[Journal_Name]</td>";
             echo "<td>$row[Journal_Type]</td>";
-            echo "<td>$row[Publication_Date]</td>";
+            $d = strtotime($row['Publication_Date']);
+            echo "<td>" . date("d/m/Y", $d) . "</td>";
             echo "<td>$row[Journal_Author]</td>";
-            echo "<td ><a class='btn btn-outline-success p-1' href=journals_edit.php?journal_id=$row[Journal_Number]>Edit</a> " .
-            "<a class='btn btn-outline-success p-1' href=journals_delete.php?journal_id=$row[Journal_Number]>Delete</a></td>";
+            echo "<td ><a class='btn btn-outline-warning btn-sm' href=journals_edit.php?journal_id=$row[Journal_Number]>Edit</a> " .
+            "<a class='btn btn-outline-danger btn-sm' data-href=\"journals_delete.php?journal_id=$row[Journal_Number]\" data-toggle=\"modal\" data-target=\"#confirm-delete\">Delete</a></td>";
             echo "</tr>";
         }
 
         echo "</table>";
         echo "<br><br><a class='btn btn-primary' href=journals_new.php>New Publication</a>";
-
-        //close db connection
-        mysqli_close($conn);
     ?>
     </div>	
 
 <?php
-	include('../main/footer.php');
+    include('../main/footer.php');
+    //close db connection
+    mysqli_close($conn);
 ?>
+
+<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                Delete confirmation
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete this publication?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <a class="btn btn-danger btn-ok">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('#confirm-delete').on('show.bs.modal', function(e) {
+        $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+    });
+</script>
 </body>
 </html>
