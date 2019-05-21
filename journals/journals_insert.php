@@ -17,7 +17,7 @@ session_start();
         <script src="../js/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="../js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>	
         <style>
-            button {
+            .btn-primary, .btn-secondary, .btn-success {
                 margin-bottom: 50px;
             }
         </style>
@@ -30,7 +30,7 @@ session_start();
     <div class="container">
         <div class="jumbotron small">
             <h1>Publication</h1>
-            <p>Add your new publication!</p> 
+            <p>Adding...</p> 
         </div>
         <?php 
             if (!empty($_SESSION['staffNumber'])
@@ -59,7 +59,7 @@ session_start();
                 }
                 else {
                     echo "<div class=\"alert alert-danger\">";
-                    echo "<strong>Success!</strong> Publication add failed. $numrows were inserted.";
+                    echo "<strong>Error!</strong> Publication add failed. $numrows were inserted.";
                     echo "</div>";
                 }
             }

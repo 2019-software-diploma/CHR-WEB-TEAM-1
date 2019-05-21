@@ -17,7 +17,7 @@
 	<script src="../js/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script src="../js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>	
     <style>
-        button {
+        .btn-primary, .btn-secondary, .btn-success {
             margin-bottom: 50px;
         }
     </style>
@@ -27,14 +27,18 @@
             include('../main/menu.php');
         ?>
         <div class="container">
+            <div class="jumbotron small">
+                <h1>Publication</h1>
+                <p>Edit your chosen publication!</p> 
+            </div>
             <?php
                 if (empty($_GET['journal_id']))
                     die("You need to select a publication from the list");
-                $journal_id = $_GET['journal_id'];
+                $journal_number = $_GET['journal_id'];
                 //open the server connection
-                require 'dbConnectionCHR.php'; 
+                require '../main/dbConnectionCHR.php'; 
                 //get the record
-                $sql = "SELECT * FROM journals WHERE Journal_Number = $journal_id";
+                $sql = "SELECT * FROM journals WHERE Journal_Number = $journal_number";
                 //echo "$sql";
                 $result = mysqli_query($conn, $sql) or die("Error editing - ". mysqli_error($conn)); 
                 if (mysqli_affected_rows($conn) == 0)
@@ -42,56 +46,61 @@
 
                 while ($row = mysqli_fetch_array($result))
                 {
-                    $journal_name = $row['Journal_Number'];
+                    $journal_name = $row['Journal_Name'];
                     $journal_type = $row['Journal_Type'];
                     $publication_date = $row['Publication_Date'];
                     $staff_number = $row['Staff_Number'];
+                    $journal_text = $row['Journal_Text'];
                 }
 
                 echo "<form action=\"journals_update.php\" method=\"POST\">";
-                echo "    <input type=\"hidden\" name=\"journal_id\" value=\"$journal_id\">";
-                echo "    <table border=\"0\">";
-                echo "        <tr>";
-                echo "            <td><label for=\"isbn\"> ISBN: </label></td>";
-                echo "            <td><input type=\"text\" id=\"isbn\" name=\"isbn\" maxlength=\"14\" minlength=\"10\" value=\"$isbn\"></td>";
-                echo "            <td><label for=\"author\"> Author: </label></td>";
-                echo "            <td><input type=\"text\" id=\"author\" name=\"author\" value=\"$author\"></td>";
-                echo "        </tr>";
-                echo "        <tr>";
-                echo "            <td><label for=\"title\"> Title: </label></td>";
-                echo "            <td colspan=\"3\"><input type=\"text\" id=\"title\" name=\"title\" value=\"$title\"></td>";
-                echo "        </tr>";
-                echo "        <tr>";
-                echo "            <td><label for=\"book_type\"> Book Type: </label></td>";
-                echo "            <td>";
-                echo "                <select required id=\"book_type\" name=\"book_type\">";
+                echo "<input hidden name=\"number\" id=\"number\" value=\"$journal_number\">";
+                echo "  <div class=\"row\">";
+                echo "      <div class=\"form-group col\">";
+                echo "          <label for=\"author\">Author:</label>";
+                echo "          <input disabled name='author' type='text' class='form-control' id='author' value='".$_SESSION['userName']."'>";
+                echo "      </div>";
+                echo "      <div class=\"form-group col\">";
+                echo "          <label for=\"date\">Date:</label>";
 
-                $sql = "SELECT * FROM BookTypes ORDER BY Book_type";
-                $result = mysqli_query($conn, $sql) or die("Error reading clothes - ".mysqli_error($conn));
-                
+                $d = strtotime($publication_date);
+
+                echo "          <input disabled name='date' type='text' class='form-control' id='date' value='" . date("d/m/Y", $d) . "'>";
+                echo "      </div>";
+                echo "  </div>";
+                echo "  <div class=\"row\">";
+                echo "      <div class=\"form-group col\">";
+                echo "          <label for=\"name\">Name:</label>";
+                echo "          <input name=\"name\" type=\"text\" class=\"form-control\" id=\"name\" required value=\"$journal_name\">";
+                echo "      </div>";
+                echo "      <div class=\"form-group col\">";
+                echo "          <label for=\"type\">Type:</label>";
+
+                require "../main/dbConnectionCHR.php";
+                $sql = "SELECT * FROM journal_types ORDER BY Journal_Type_Desc";
+                $result = mysqli_query($conn, $sql) or die("Error reading journal types - ".mysqli_error($conn));
+
+                echo "<select required class=\"form-control custom-select\" id=\"type\" name=\"type\">";
                 while ($row = mysqli_fetch_array($result))
                 {
-                    if ($bookType == $row[Book_type]) 
-                        echo "<option value=\"$row[Book_type]\" selected>$row[Description]</option>"; 
+                    if ($journal_type == $row['Journal_Type_Code'])
+                        echo "<option selected value=\"$row[Journal_Type_Code]\">$row[Journal_Type_Desc]</option>";
                     else 
-                        echo "<option value=\"$row[Book_type]\">$row[Description]</option>";
+                        echo "<option value=\"$row[Journal_Type_Code]\">$row[Journal_Type_Desc]</option>";
                 }
+                echo "</select>";
 
-                echo "                </select>";
-                echo "            </td>";
-                echo "            <td><label for=\"price\"> Price(AU$): </label></td>";
-                echo "            <td><input type=\"number\" id=\"price\" name=\"price\" step=\"0.01\" value=\"$price\"></td>";
-                echo "        </tr>";
-                echo "        <tr>";
-                echo "            <td></td>";
-                echo "            <td></td>";
-                echo "            <td></td>";
-                echo "            <td><input type=\"submit\" value=\"Update Book\"></td>";
-                echo "        </tr>";
-                echo "    </table>";
-                echo "</form>";
+                echo "    </div>";
+                echo "</div>";
+                echo "<div class=\"row\">";
+                echo "    <div class=\"form-group col\">";
+                echo "        <label for=\"text\">Text:</label>";
+                echo "        <textarea name=\"text\" class=\"form-control\" rows=\"5\" id=\"text\" required>$journal_text</textarea>";
+                echo "    </div>";
+                echo "</div>";
+                echo "<button type=\"submit\" class=\"btn btn-success\">Submit</button>";
             ?>
-            <a href="booklist.php?book_type=A">Book List</a>
+            <a href="journals_list.php" class="btn btn-secondary" role="button">Publicantion List</a>
         </div>	
 
     <?php
