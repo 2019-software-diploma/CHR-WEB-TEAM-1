@@ -1,5 +1,5 @@
 <?php 
-require 'dbConnectCHR.php'; 
+require '../main/dbConnectionCHR.php'; 
 
 	$sql = "SELECT * FROM `staff`";
 	$result = mysqli_query($conn, $sql)or die("Error reading staff database - ". mysqli_error($conn)); 
