@@ -69,6 +69,7 @@
 			else
 			{
 				echo 'The email or password was incorrect!';
+				session_unset();
 			}
 		}
 	}
