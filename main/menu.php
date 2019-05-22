@@ -23,13 +23,8 @@
 		  Get Involved
 		</a>
 		<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-<<<<<<< HEAD
-		  <a class="dropdown-item" href="../MakeAppointment.php">Make Appointment</a>
-		  <a class="dropdown-item" href="../subscribe/Subscribe_News.php">Subscribe to Newsletter</a>
-=======
+		  <a class="dropdown-item" href="../subscribe/subscribe_news.php">Subscribe to Newsletter</a>
 		  <a class="dropdown-item" href="../appointments/appointment_new.php">Make Appointment</a>
-		  <a class="dropdown-item" href="../SubscribeNewsletter.php">Subscribe to Newsletter</a>
->>>>>>> f9c18272c604b72d4b6f80d4e6a20e682bd3a8c6
 		</div>
 	  </li>
 		<li class="nav-item">
