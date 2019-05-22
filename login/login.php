@@ -59,10 +59,12 @@
 		
 				echo "<br/>";		
 				echo "<h1>Welcome $userName</h1>";
-				echo "<h2>You have successfully logged in</h2>";
+				echo "<h3>You have successfully logged in</h3>";
 				echo "<br>";
-				echo "<h3>Please select an option to manage this site:</h3>";
-				echo "<h4><a href='../staff/staff_list.php'>Staff</a></h4>";
+				echo "<h5>Please select an option to manage this site:</h5>";
+				echo "<h6><a href='../staff/staff_list.php'>Staff</a></h6>";
+				echo "<h6><a href='../journals/journals_list.php'>Journals</a></h6>";
+				echo "<h6><a href='../appoinments/appointment_list.php'>Appointments</a></h6>";
 			}
 			else
 			{
@@ -74,8 +76,10 @@
 	{
 		echo "<br/>";		
 		echo "<br>";
-		echo "<h3>Please select an option to manage this site:</h3>";
-		echo "<h4><a href='../staff/staff_list.php'>Staff</a></h4>";
+		echo "<h5>Please select an option to manage this site:</h5>";
+		echo "<h6><a href='../staff/staff_list.php'>Staff</a></h6>";
+		echo "<h6><a href='../journals/journals_list.php'>Journals</a></h6>";
+		echo "<h6><a href='../appoinments/appointment_list.php'>Appointments</a></h6>";
 	}
 	
 
