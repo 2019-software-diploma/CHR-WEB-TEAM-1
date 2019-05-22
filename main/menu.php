@@ -24,7 +24,7 @@
 		</a>
 		<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 		  <a class="dropdown-item" href="../MakeAppointment.php">Make Appointment</a>
-		  <a class="dropdown-item" href="../SubscribeNewsletter.php">Subscribe to Newsletter</a>
+		  <a class="dropdown-item" href="../subscribe/Subscribe_News.php">Subscribe to Newsletter</a>
 		</div>
 	  </li>
 		<li class="nav-item">
