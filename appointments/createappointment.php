@@ -1,5 +1,5 @@
 <?php
-require 'dbConnectCHR.php'; 
+require '../main/dbConnectionCHR.php'; 
 	$First_Name = $_POST['First_Name'];
     $Surname = $_POST['Surname'];
     $Phone_Number = $_POST['Phone_Number'];
