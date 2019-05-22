@@ -23,8 +23,8 @@
 		  Get Involved
 		</a>
 		<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-		  <a class="dropdown-item" href="../MakeAppointment.php">Make Appointment</a>
-		  <a class="dropdown-item" href="../SubscribeNewsletter.php">Subscribe to Newsletter</a>
+		  <a class="dropdown-item" href="../subscribe/subscribe_news.php">Subscribe to Newsletter</a>
+		  <a class="dropdown-item" href="../appointments/appointment_new.php">Make Appointment</a>
 		</div>
 	  </li>
 		<li class="nav-item">
