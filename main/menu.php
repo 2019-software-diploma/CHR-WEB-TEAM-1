@@ -1,3 +1,11 @@
+<?php
+/**
+ * Author: Edgar Hernandez
+ * Date: 01/05/2019
+ * Purpose: Main page of the Web Portal
+ */
+?>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	<a class="navbar-brand" href="../main/index.php"><img src="../images/logo.png"/></a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,7 +60,19 @@
 	</form>
   </div>
 </nav>
-	
+
+
+<?php
+	if (isset($_SESSION['userName'])) {
+		$username = $_SESSION['userName'];
+		echo "<div align=center>User in session: $username &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+		echo "&nbsp;&nbsp;&nbsp;";
+		echo "<a href='../login/login.php?manageportal=1'>Manage Portal</a>";
+		echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+		echo "<a href='../login/logoff.php'>Click Here to Log off</a><br></div>";
+	}
+?>
+
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -100,5 +120,6 @@
 	})();
 	</script>
 	  </div>
-  </div>
+	</div>
+
 </div>

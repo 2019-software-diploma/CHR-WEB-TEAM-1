@@ -1,4 +1,9 @@
 <?php
+/**
+ * Author: Edgar Hernandez
+ * Date: 01/05/2019
+ * Purpose: Logoff of the Web Portal
+ */
 	session_start();
 	//Remove all session varibles
 	session_unset();

@@ -1,4 +1,9 @@
 <?php
+/**
+ * Author: Edgar Hernandez
+ * Date: 01/05/2019
+ * Purpose: Login of the Web Portal
+ */
 	session_start();
 ?>
 <!DOCTYPE html>
