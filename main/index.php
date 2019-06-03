@@ -5,6 +5,10 @@
  * Purpose: Main page of the Web Portal
  */
  session_start();
+
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,21 +54,21 @@
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="../images/index1.jpg" class="d-block w-100" alt="...">
+        <img src="../images/index1.jpg" class="d-block w-100" alt="Cloud Research">
         <div class="carousel-caption d-none d-md-block">
-          <h5 class="btn btn-warning btn-lg"><a href="../content/CloudResearch.php">Cloud Research</a></h5>
+          <h5 class="btn btn-warning btn-light"><a href="../content/CloudResearch.php">Cloud Research</a></h5>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="../images/index2.jpg" class="d-block w-100" alt="...">
+        <img src="../images/index2.jpg" class="d-block w-100" alt="Research Project">
         <div class="carousel-caption d-none d-md-block">
-        <h5 class="btn btn-success btn-lg"><a href="../content/ResearchProject.php">Research Project</a></h5>
+        <h5 class="btn btn-success btn-light"><a href="../content/ResearchProject.php">Research Project</a></h5>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="../images/index3.jpg" class="d-block w-100" alt="...">
+        <img src="../images/index3.jpg" class="d-block w-100" alt="What is cloud computing?">
         <div class="carousel-caption d-none d-md-block">
-        <h5 class="btn btn-success btn-lg"><a href="../content/CloudComputing.php">What is cloud computing?</a></h5>
+        <h5 class="btn btn-success btn-light"><a href="../content/CloudComputing.php">What is cloud computing?</a></h5>
         </div>
       </div>
     </div>

@@ -4,7 +4,7 @@
  * Date: 01/05/2019
  * Purpose: Login of the Web Portal
  */
-	session_start();
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -62,14 +62,14 @@
 				$_SESSION['userName'] = $userName;
 				$_SESSION['staffNumber'] = $staffNumber;
 		
-				echo "<br/>";		
+				echo "<div align=center><br/>";		
 				echo "<h1>Welcome $userName</h1>";
 				echo "<h3>You have successfully logged in</h3>";
 				echo "<br>";
 				echo "<h5>Please select an option to manage this site:</h5>";
 				echo "<h6><a href='../staff/staff_list.php'>Staff</a></h6>";
 				echo "<h6><a href='../journals/journals_list.php'>Journals</a></h6>";
-				echo "<h6><a href='../appoinments/appointment_list.php'>Appointments</a></h6>";
+				echo "<h6><a href='../appoinments/appointment_list.php'>Appointments</a></h6></div>";
 			}
 			else
 			{
@@ -80,12 +80,12 @@
 	}
 	else
 	{
-		echo "<br/>";		
+		echo "<div align=center><br/>";		
 		echo "<br>";
 		echo "<h5>Please select an option to manage this site:</h5>";
 		echo "<h6><a href='../staff/staff_list.php'>Staff</a></h6>";
 		echo "<h6><a href='../journals/journals_list.php'>Journals</a></h6>";
-		echo "<h6><a href='../appoinments/appointment_list.php'>Appointments</a></h6>";
+		echo "<h6><a href='../appoinments/appointment_list.php'>Appointments</a></h6></div>";
 	}
 	
 

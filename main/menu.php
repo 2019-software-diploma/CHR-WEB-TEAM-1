@@ -22,8 +22,8 @@
 		  <a class="dropdown-item" href="../content/CloudResearch.php">Cloud Research</a>
 		  <a class="dropdown-item" href="../content/CloudComputing.php">What is Cloud Computing</a>
 		  <a class="dropdown-item" href="../content/CloudTypes.php">Cloud Types</a>
-		  <div class="dropdown-divider"></div>
-		  <a class="dropdown-item" href="../content/ResearchProject.php">Research Project</a>			  
+		  <!--<div class="dropdown-divider"></div>
+		  <a class="dropdown-item" href="../content/ResearchProject.php">Research Project</a>-->
 		</div>
 	  </li>
 	  <li class="nav-item dropdown">
@@ -50,28 +50,36 @@
 		<li class="nav-item">
 		<a class="nav-link" href="../content/ContactUs.php">Contact Us</a>
 		</li>
-		<li class="nav-item">
-		<a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal" data-whatever="@mdo">Login</a>
-		</li>
+		<?php
+		if (!isset($_SESSION['userName'])) {
+			echo "<li class='nav-item'>";
+			echo "<a class='nav-link' href='#' data-toggle='modal' data-target='#loginModal' data-whatever='@mdo'>Login</a>";
+			echo "</li>";
+		}
+		else
+		{
+			echo "<li class='nav-item'>";
+			echo "<a class='nav-link' href='../login/logoff.php' >Logoff</a>";
+			echo "</li>";
+		}
+		?>
 	</ul>
 	<form class="form-inline my-2 my-lg-0">
+	<?php
+	if (isset($_SESSION['userName'])) {
+		$username = $_SESSION['userName'];
+		echo "<div align=center><a href='../login/login.php?manageportal=1'>User: $username</a></div>";
+		echo "&nbsp;&nbsp;&nbsp;";
+	}
+?>
 	  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
 	  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 	</form>
-  </div>
+	</div>
 </nav>
 
 
-<?php
-	if (isset($_SESSION['userName'])) {
-		$username = $_SESSION['userName'];
-		echo "<div align=center>User in session: $username &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-		echo "&nbsp;&nbsp;&nbsp;";
-		echo "<a href='../login/login.php?manageportal=1'>Manage Portal</a>";
-		echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-		echo "<a href='../login/logoff.php'>Click Here to Log off</a><br></div>";
-	}
-?>
+
 
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
   <div class="modal-dialog" role="document">

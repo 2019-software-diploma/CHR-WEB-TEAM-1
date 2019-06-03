@@ -1,4 +1,8 @@
 <style>
+html {
+    min-height: 100%;
+    position: relative;
+  }
 .btn-primary, .btn-secondary, .btn-success {
     margin-top: 20px;
     margin-bottom: 50px;
