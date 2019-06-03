@@ -34,8 +34,13 @@
                 //open the server connection
                 require '../main/dbConnectionCHR.php'; 
                 //get the record
-                $sql = "SELECT * FROM journals WHERE Journal_Number = $journal_number";
-                //echo "$sql";
+                $sql = "SELECT j.*,
+                    (SELECT CONCAT(s.First_Name, ' ', s.Surname) 
+                        FROM staff s
+                        WHERE s.Staff_Number = j.Staff_Number)
+                        AS Journal_Author
+                    FROM journals j WHERE Journal_Number = $journal_number";
+
                 $result = mysqli_query($conn, $sql) or die("Error editing - ". mysqli_error($conn)); 
                 if (mysqli_affected_rows($conn) == 0)
                     die("Error – record not found to edit");
@@ -47,6 +52,7 @@
                     $publication_date = $row['Publication_Date'];
                     $staff_number = $row['Staff_Number'];
                     $journal_text = $row['Journal_Text'];
+                    $journal_author = $row['Journal_Author'];
                 }
 
                 echo "<form action=\"journals_update.php\" method=\"POST\">";
@@ -54,7 +60,7 @@
                 echo "  <div class=\"row\">";
                 echo "      <div class=\"form-group col\">";
                 echo "          <label for=\"author\">Author:</label>";
-                echo "          <input disabled name='author' type='text' class='form-control' id='author' value='".$_SESSION['userName']."'>";
+                echo "          <input disabled name='author' type='text' class='form-control' id='author' value='$journal_author'>";
                 echo "      </div>";
                 echo "      <div class=\"form-group col\">";
                 echo "          <label for=\"date\">Date:</label>";
