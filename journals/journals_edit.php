@@ -9,15 +9,9 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Caprivi Healthcare Research</title>
-    <link rel="stylesheet" href="../css/custom.css" >
-	<link rel="stylesheet" href="../css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<script src="../js/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="../js/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-	<script src="../js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>	
-</head>
+<?php
+	include('../main/head.php');
+?>
     <body>
         <?php
             include('../main/menu.php');
@@ -34,8 +28,13 @@
                 //open the server connection
                 require '../main/dbConnectionCHR.php'; 
                 //get the record
-                $sql = "SELECT * FROM journals WHERE Journal_Number = $journal_number";
-                //echo "$sql";
+                $sql = "SELECT j.*,
+                    (SELECT CONCAT(s.First_Name, ' ', s.Surname) 
+                        FROM staff s
+                        WHERE s.Staff_Number = j.Staff_Number)
+                        AS Journal_Author
+                    FROM journals j WHERE Journal_Number = $journal_number";
+
                 $result = mysqli_query($conn, $sql) or die("Error editing - ". mysqli_error($conn)); 
                 if (mysqli_affected_rows($conn) == 0)
                     die("Error – record not found to edit");
@@ -47,6 +46,7 @@
                     $publication_date = $row['Publication_Date'];
                     $staff_number = $row['Staff_Number'];
                     $journal_text = $row['Journal_Text'];
+                    $journal_author = $row['Journal_Author'];
                 }
 
                 echo "<form action=\"journals_update.php\" method=\"POST\">";
@@ -54,7 +54,7 @@
                 echo "  <div class=\"row\">";
                 echo "      <div class=\"form-group col\">";
                 echo "          <label for=\"author\">Author:</label>";
-                echo "          <input disabled name='author' type='text' class='form-control' id='author' value='".$_SESSION['userName']."'>";
+                echo "          <input disabled name='author' type='text' class='form-control' id='author' value='$journal_author'>";
                 echo "      </div>";
                 echo "      <div class=\"form-group col\">";
                 echo "          <label for=\"date\">Date:</label>";
