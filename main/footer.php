@@ -5,6 +5,7 @@
  * Purpose: Footer page of the Web Portal
  */
  ?>
+<<<<<<< HEAD
 <style type="text/css">
 <!--
 /* Pie de pagina*/
@@ -20,6 +21,8 @@
 }
 -->
 </style>
+=======
+>>>>>>> 57bdd30f3a5f4a2b7aac3a3c38cacac7f86df7a0
 
 <footer class="container-fluid bg-4 text-center" id="footer">
     <p>
