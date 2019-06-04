@@ -41,7 +41,7 @@ session_start();
 			require '../main/dbConnectionCHR.php';
 			
 			//Check to see if a valid username & password exists
-			$sql = "SELECT user_level, concat_ws(' ', First_Name, Surname) as user_name, staff_number FROM staff WHERE email='$email' AND password='$password'";
+			$sql = "SELECT user_level, First_Name, staff_number FROM staff WHERE email='$email' AND password='$password'";
 			
 			$result = mysqli_query($conn, $sql) or die("Error reading users - ".mysqli_error($conn));
 			$numrows = mysqli_num_rows($result);
