@@ -1,4 +1,4 @@
-<!-- *********************************************************************** -->
+ <!-- *********************************************************************** -->
 <!-- Programmer: Marco S. Chalub -->
 <!-- Software: Microsoft Visual Studio Code -->
 <!-- Platform: macOS Mojave 10.14.4 -->
@@ -19,10 +19,6 @@
 
 <div class="container">
     <?php
-        //read session field and die it it's empty
-        //if (empty($_SESSION['userName']))
-        //    die("You must log in!");
-
         //open db connection
         require '../main/dbConnectionCHR.php';
 
@@ -62,67 +58,47 @@
 
         while ($row = mysqli_fetch_array($result))
         {
-            echo "<div class='card bg-light'>";
+            $title = "$row[Journal_Name] | $row[Journal_Type] #$row[Journal_Number]";
+            $text = "$row[Journal_Text]";
+
+            echo "<div class='card-deck'>";
+            echo "<div class='card border-light mb-3'>";
             echo "    <div class='card-body'>";
-            echo "        <h5 class='card-title'>$row[Journal_Name] | $row[Journal_Type] #$row[Journal_Number]</h5>";
-            echo "       <p class='card-text'>$row[Journal_Text]</p>";
+            echo "        <h5 class='card-title'>$title</h5>";
+
+            if (strlen($text) > 100) {
+                echo substr($text, 0, 100);
+                echo "<span class='collapse' id='readmore'>";
+                echo substr($text, 101, strlen($text));
+                echo "</span> <a class='badge badge-pill badge-primary' data-toggle='collapse' data-target='#readmore'>... &raquo;</a>";
+            } else
+                echo "       <p class='card-text'>$text</p>";
+
             $d = strtotime($row['Publication_Date']);
             echo "        <p class='card-text'><small class='text-muted'>".date('l jS \of F Y', $d)."</small></p>";
             
             if (!empty($_SESSION['userName']) && $_SESSION['staffNumber'] == $row['Staff_Number']) {
-                echo "<td ><a class='btn btn-outline-warning btn-sm' href=journals_edit.php?journal_id=$row[Journal_Number]>Edit</a> ";
-                echo "<a class='btn btn-outline-danger btn-sm' data-href=\"journals_delete.php?journ\l_id=$row[Journal_Number]\" data-toggle=\"modal\" data-target=\"#confirm-delete\">Delete</a></td>";
+                echo "<td ><a class='badge badge-primary' href=journals_edit.php?journal_id=$row[Journal_Number]>Edit</a> ";
+                echo "<a class='badge badge-light' href='#' data-href='journals_delete.php?journal_id=$row[Journal_Number]' data-toggle=\"modal\" data-target=\"#confirm-delete\">Delete</a></td>";
             }
             else {
-                echo "<td ><a class='btn btn-outline-warning btn-sm' href=journals_edit.php?journal_id=$row[Journal_Number]>Read</a> ";
+                echo "<td ><a class='badge badge-primary' href=journals_edit.php?journal_id=$row[Journal_Number]>Details</a> ";
             }
-
+            
+            echo "      </div>";
             echo "    </div>";
             echo "</div>";
         }
         
-        // //build result html
-        // echo "<table class='table'>";
-        // echo "<thead class='thead-dark'><tr>
-        //             <th>Publication</th>
-        //             <th>Name</th>
-        //             <th>Type</th>
-        //             <th>Date</th>
-        //             <th>Author</th>
-        //             <th>Action</th></tr>";
-
-        // //dynamic book list
-        // while ($row = mysqli_fetch_array($result))
-        // {
-        //     echo "</thead><tr>";
-        //     echo "<td>$row[Journal_Number]</td>";
-        //     echo "<td>$row[Journal_Name]</td>";
-        //     echo "<td>$row[Journal_Type]</td>";
-        //     $d = strtotime($row['Publication_Date']);
-        //     echo "<td>" . date("d/m/Y", $d) . "</td>";
-        //     echo "<td>$row[Journal_Author]</td>";
-
-        //     if (!empty($_SESSION['userName']) && $_SESSION['staffNumber'] == $row['Staff_Number']) {
-        //         echo "<td ><a class='btn btn-outline-warning btn-sm' href=journals_edit.php?journal_id=$row[Journal_Number]>Edit</a> ";
-        //         echo "<a class='btn btn-outline-danger btn-sm' data-href=\"journals_delete.php?journ\l_id=$row[Journal_Number]\" data-toggle=\"modal\" data-target=\"#confirm-delete\">Delete</a></td>";
-        //     }
-        //     else {
-        //         echo "<td ><a class='btn btn-outline-warning btn-sm' href=journals_edit.php?journal_id=$row[Journal_Number]>Read</a> ";
-        //     }
-
-        //     echo "</tr>";
-        // }
-        // echo "</table>";
-
         if (!empty($_SESSION['userName']))
             echo "<br><br><a class='btn btn-primary' href=journals_new.php>New Publication</a>";
     ?>
     </div>	
 
 <?php
-    include('../main/footer.php');
-    //close db connection
-    mysqli_close($conn);
+    // include('../main/footer.php');
+    // //close db connection
+    // mysqli_close($conn);
 ?>
 
 <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
