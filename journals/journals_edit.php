@@ -47,7 +47,7 @@
                 }
 
                 echo "<div class='jumbotron small'>";
-                echo "<div class='journal-headline' >";
+                echo "<div >";
                 echo "  <h1 style=\"font-family: 'nyt-cheltenham', 'georgia', 'times new roman', 'times', 'serif';\">";
                 echo "      <span>$journal_name</span>";
                 echo "  </h1>";
@@ -109,9 +109,9 @@
         </div>	
 
     <?php
-        // include('../main/footer.php');
-        // //close db connection
-        // mysqli_close($conn);
-    ?>
+        include('../main/footer.php');
+        //close db connection
+        mysqli_close($conn);
+     ?>
 </body>
 </html>
