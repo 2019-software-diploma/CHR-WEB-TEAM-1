@@ -31,7 +31,7 @@ header("Pragma: no-cache");
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="../images/index1.jpg" class="d-block w-100" alt="Cloud Research">
+        <img src="../images/Index1.jpg" class="d-block w-100" alt="Cloud Research">
         <div class="carousel-caption d-none d-md-block">
           <h5 class="btn btn-warning btn-light"><a href="../content/CloudResearch.php">Cloud Research</a></h5>
         </div>
