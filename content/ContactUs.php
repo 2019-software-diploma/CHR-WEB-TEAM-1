@@ -3,15 +3,7 @@
  * Author: Edgar Hernandez
  * Date: 01/05/2019
  * Purpose: List of Staff
- */
-	session_start();
-	
-	//If session variable has done we move to log-off page.
-	if (!isset($_SESSION['userName'])) {
-		header("Location: ../login/logoff.php?sessiondone=1");
-		die();	
-	}
-	
+ */	
 	require "../main/dbConnectionCHR.php";
 ?>
 <!DOCTYPE html>
