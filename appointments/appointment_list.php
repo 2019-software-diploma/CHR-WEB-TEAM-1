@@ -49,7 +49,7 @@
 		<tbody>
         <?php
 		
-		$SQL = "SELECT * FROM appointments where Staff_Number =" . $staffNumber;
+		$SQL = "SELECT * FROM appointments ";
         $result = mysqli_query($conn, $SQL);
         if (mysqli_num_rows($result) > 0) {
             while($row = mysqli_fetch_array($result)) {
