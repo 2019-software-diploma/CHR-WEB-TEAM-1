@@ -64,7 +64,7 @@ session_start();
 				echo "<h5>Please select an option to manage this site:</h5>";
 				echo "<h6><a href='../staff/staff_list.php'>Staff</a></h6>";
 				echo "<h6><a href='../journals/journals_list.php'>Journals</a></h6>";
-				echo "<h6><a href='../appoinments/appointment_list.php'>Appointments</a></h6>";
+				echo "<h6><a href='../appointments/appointment_list.php'>Appointments</a></h6>";
 				echo "<br><br><h6><a href='../login/logoff.php'>Logoff</a></h6>";
 				echo "<br></div>";
 			}
@@ -82,7 +82,7 @@ session_start();
 		echo "<h5>Please select an option to manage this site:</h5>";
 		echo "<h6><a href='../staff/staff_list.php'>Staff</a></h6>";
 		echo "<h6><a href='../journals/journals_list.php'>Journals</a></h6>";
-		echo "<h6><a href='../appoinments/appointment_list.php'>Appointments</a></h6>";
+		echo "<h6><a href='../appointments/appointment_list.php'>Appointments</a></h6>";
 		echo "<br><br><h6><a href='../login/logoff.php'>Logoff</a></h6>";
 		echo "<br></div>";
 	}
