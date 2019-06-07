@@ -46,7 +46,7 @@
 		<tbody>
         <?php
 		
-		$SQL = "SELECT * FROM staff";
+		$SQL = "SELECT Staff_Number, First_Name, Surname, Position, Gender, Date_of_Birth, Department, Office_Number, Branch_Name, Email  FROM staff INNER JOIN branches ON staff.Branch_Number = branches.Branch_Number";
         $result = mysqli_query($conn, $SQL);
         if (mysqli_num_rows($result) > 0) {
             while($row = mysqli_fetch_array($result)) {
@@ -58,7 +58,7 @@
                 echo "<td>" . $row['Date_of_Birth'] . "</td>";
                 echo "<td>" . $row['Department'] . "</td>";
                 echo "<td>" . $row['Office_Number'] . "</td>";
-                echo "<td>" . $row['Branch_Number'] . "</td>";
+                echo "<td>" . $row['Branch_Name'] . "</td>";
                 echo "<td>" . $row['Email'] . "</td>";	
                 echo "<td align=center>
                     <a class='btn btn-outline-warning btn-sm' href=\"staff_edit.php?staffnumber=" . $row['Staff_Number'] . "\">Edit</a>&nbsp;&nbsp;&nbsp;

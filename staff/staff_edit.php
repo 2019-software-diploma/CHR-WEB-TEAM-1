@@ -46,7 +46,7 @@
       $row = mysqli_fetch_assoc($result);
     }    
     ?>
-    <form name="staff" class="container-fluid needs-validation" action="../staff/staff_update.php" method="POST" novalidate>
+    <form name="staff" class="container-fluid needs-validation" action="../staff/staff_update.php?A=1&P=0" method="POST" novalidate>
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="First_Name">Name</label>
@@ -104,23 +104,9 @@
           <input type="date" class="form-control" name="Date_of_Birth" id="Date_of_Birth" placeholder="DD/MM/YYYY" required value="<?php echo $row['Date_of_Birth']; ?>">
         </div>
       </div>
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="email">Email</label>
-          <input type="email" class="form-control" name="Email" id="Email" aria-describedby="emailHelp" placeholder="Enter email" required value="<?php echo $row['Email']; ?>">
-        </div>
-        <div class="form-group col-md-6">
-          <label for="Password">Password</label>
-          <input type="password" class="form-control" name="Password" id="Password" placeholder="Password" maxlength="6" required value="<?php echo $row['Password']; ?>">
-        </div>
-      </div>      
-
-      <div>
       <input name="staffnumber" type="hidden" value="<?php echo $staffnumber;?>">
-      <button type="submit" class="btn btn-success btn-sm">Submit</button>
-
+      <button type="submit" class="btn btn-success btn-sm">Update</button>
       <a href="../staff/staff_list.php" class="btn btn-secondary btn-sm" role="button" >Staff List</a>
-
       <script>
     // Example starter JavaScript for disabling form submissions if there are invalid fields
     (function() {
@@ -139,12 +125,48 @@
           }, false);
         });
       }, false);
-    })();
-    </script>
-      <div>
-      <br>
-    </form>
+      })();
+      </script>
+      </form>
 
+      <form name="staff" class="container-fluid needs-validationP" action="../staff/staff_update.php?A=0&P=1" method="POST" novalidate>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" name="Email" id="Email" aria-describedby="emailHelp" placeholder="Enter email" required value="<?php echo $row['Email']; ?>">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="Password">Password</label>
+          <input type="password" class="form-control" name="Password" id="Password" placeholder="Password" maxlength="6" required >
+        </div>
+      </div>      
+      <button type="submit" class="btn btn-success btn-sm">Update Password</button>
+      <a href="../staff/staff_list.php" class="btn btn-secondary btn-sm" role="button" >Staff List</a>
+      <div>
+      <input name="staffnumberP" type="hidden" value="<?php echo $staffnumber;?>">
+      <script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function() {
+      'use strict';
+      window.addEventListener('load', function() {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validationP');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function(form) {
+          form.addEventListener('submit', function(event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+      })();
+      </script>
+      </form>
+      <div>
+      <br><br>
 </div>
 <?php
 	include('../main/footer.php');
