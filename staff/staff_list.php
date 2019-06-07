@@ -30,17 +30,17 @@
 	<div align="center" width="90%"></div>
     <table class="table table-striped table-sm" align="center">
 		<thead class="thead-dark">
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">First_Name</th>
-            <th scope="col">Position</th>
-            <th scope="col">Gender</th>
-            <th scope="col">Date of Birth</th>
-            <th scope="col">Department</th>
-            <th scope="col">Office Number</th>
-			<th scope="col">Branch</th>
-			<th scope="col">Email</th>
-			<th scope="col">Actions</th>
+        <tr  align="center">
+            <th scope="col" >ID</th>
+            <th scope="col" >First_Name</th>
+            <th scope="col" >Position</th>
+            <th scope="col" >Gender</th>
+            <th scope="col" >Date of Birth</th>
+            <th scope="col" >Department</th>
+            <th scope="col" >Office Number</th>
+			<th scope="col" >Branch</th>
+			<th scope="col" >Email</th>
+			<th scope="col" >Actions</th>
         </tr>
 		</thead>
 		<tbody>

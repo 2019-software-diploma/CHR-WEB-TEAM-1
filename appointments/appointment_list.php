@@ -32,16 +32,14 @@
 	<div align="center" width="90%"></div>
     <table class="table table-striped table-sm" align="center">
 		<thead class="thead-dark">
-        <tr>
-            <th scope="col">Appointment ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">Phone Number</th>
-            <th scope="col">Appointment Time</th>
-            <th scope="col">Appointment Date</th>
-            <th scope="col">Summary</th>
-			
-			
-			
+        <tr align="center">
+            <th scope="col" >Appointment ID</th>
+            <th scope="col" >Name</th>
+            <th scope="col" >Phone Number</th>
+            <th scope="col" >Appointment Time</th>
+            <th scope="col" >Appointment Date</th>
+            <th scope="col" >Summary</th>
+			<th scope="col" >Actions</th>
         </tr>
 		</thead>
 
@@ -65,7 +63,7 @@
                     <a class='btn btn-outline-warning btn-sm' href=\"appointment_edit.php?appointmentid=" . $row['Appointment_ID'] . "\">Edit</a>&nbsp;&nbsp;&nbsp;
                     
                     <a class='btn btn-outline-danger btn-sm' href=\"appointment_delete.php?appointmentid=" . $row['Appointment_ID'] . "\" onclick=\"return confirm('Are you sure?');\">Delete</a>&nbsp;&nbsp;&nbsp;
-					</td>";
+                    </td>";
                 echo "</tr>";
             }
         } 
