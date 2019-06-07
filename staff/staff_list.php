@@ -30,23 +30,23 @@
 	<div align="center" width="90%"></div>
     <table class="table table-striped table-sm" align="center">
 		<thead class="thead-dark">
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">First_Name</th>
-            <th scope="col">Position</th>
-            <th scope="col">Gender</th>
-            <th scope="col">Date of Birth</th>
-            <th scope="col">Department</th>
-            <th scope="col">Office Number</th>
-			<th scope="col">Branch</th>
-			<th scope="col">Email</th>
-			<th scope="col">Actions</th>
+        <tr  align="center">
+            <th scope="col" >ID</th>
+            <th scope="col" >First_Name</th>
+            <th scope="col" >Position</th>
+            <th scope="col" >Gender</th>
+            <th scope="col" >Date of Birth</th>
+            <th scope="col" >Department</th>
+            <th scope="col" >Office Number</th>
+			<th scope="col" >Branch</th>
+			<th scope="col" >Email</th>
+			<th scope="col" >Actions</th>
         </tr>
 		</thead>
 		<tbody>
         <?php
 		
-		$SQL = "SELECT * FROM staff";
+		$SQL = "SELECT Staff_Number, First_Name, Surname, Position, Gender, Date_of_Birth, Department, Office_Number, Branch_Name, Email  FROM staff INNER JOIN branches ON staff.Branch_Number = branches.Branch_Number";
         $result = mysqli_query($conn, $SQL);
         if (mysqli_num_rows($result) > 0) {
             while($row = mysqli_fetch_array($result)) {
@@ -58,7 +58,7 @@
                 echo "<td>" . $row['Date_of_Birth'] . "</td>";
                 echo "<td>" . $row['Department'] . "</td>";
                 echo "<td>" . $row['Office_Number'] . "</td>";
-                echo "<td>" . $row['Branch_Number'] . "</td>";
+                echo "<td>" . $row['Branch_Name'] . "</td>";
                 echo "<td>" . $row['Email'] . "</td>";	
                 echo "<td align=center>
                     <a class='btn btn-outline-warning btn-sm' href=\"staff_edit.php?staffnumber=" . $row['Staff_Number'] . "\">Edit</a>&nbsp;&nbsp;&nbsp;

@@ -43,7 +43,7 @@
 
        //update the record
         $sql = "INSERT INTO staff (First_Name, Surname, Position, Gender, Date_of_Birth, Department, Office_Number, Branch_Number, Email, Password, User_level) 
-        VALUES('$First_Name', '$Surname', '$Position', '$Gender', '$Date_of_Birth', '$Department', '$Office_Number', $Branch_Number, '$Email', '$Password', 'ADMIN')";
+        VALUES('$First_Name', '$Surname', '$Position', '$Gender', '$Date_of_Birth', '$Department', '$Office_Number', $Branch_Number, '$Email', SHA('$Password'), 'ADMIN')";
 
         $result = mysqli_query($conn, $sql) or die("Error updating record ".mysqli_error($conn));
 
