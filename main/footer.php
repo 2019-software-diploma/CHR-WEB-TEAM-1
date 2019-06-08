@@ -5,21 +5,6 @@
  * Purpose: Footer page of the Web Portal
  */
  ?>
-<style type="text/css">
-<!--
-/* Pie de pagina*/
-#footer {
-	border-top: 0px solid #000;
-    position:fixed;
-    left:0px;
-    bottom:0px;
-    width:100%;
-    height:120px;
-    background-color: #3597D4;
-    color: #ffffff;
-}
--->
-</style>
 <footer class="container-fluid bg-4 text-center" id="footer">
     <p>
     <div class="row">

@@ -7,11 +7,13 @@ html {
 
 #footer {
     border-top: 0px solid #000;
-    position: relative;
+    position: fixed;
     left: 0px;
     bottom: 0px;
     width: 100%;
     height: 120px;
+    background-color: #3597D4;
+    color: #ffffff;
 }
 
 .navbar {
