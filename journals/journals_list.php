@@ -40,7 +40,7 @@
             //splits string by blank space
             $searchStrs = explode(" ", $searchStr);
 
-            foreach ($searchStrs as $i => $str) {//it goaes through each word
+            foreach ($searchStrs as $i => $str) {//it goes through each word
                 if ($i > 0)//add 'WHERE' for the first iteration and 'OR' for the rest of them
                     $sql = $sql." OR";
                 else

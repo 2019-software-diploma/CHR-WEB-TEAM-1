@@ -63,7 +63,7 @@
                 echo "  <p class='text-justify' style=\"font-family: 'nyt-imperial', 'georgia', 'times new roman', 'times', 'serif';\">$journal_text</p>";
                 echo "</div>";
             ?>
-            <a href="journals_list.php" class="btn btn-secondary" role="button">Publicantion List</a>
+            <a href="journals_list.php" class="btn btn-secondary" role="button">Publication List</a>
         </div>	
 
     <?php
