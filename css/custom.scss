@@ -3,25 +3,13 @@ html {
     position: relative;
 }
 
-
-
-#footer {
-    border-top: 0px solid #000;
-    position: fixed;
-    left: 0px;
-    bottom: 0px;
-    width: 100%;
-    height: 120px;
-    background-color: #3597D4;
-    color: #ffffff;
-}
-
 .navbar {
     padding: 1px 10px !important;
 }
 
-.navbar {
-    font-size: 13px;
+.navbar,
+.dropdown-item {
+    font-size: 13px !important;
 }
 
 .navbar a#chrLogo,
@@ -43,6 +31,27 @@ html {
 
 .navbar-nav {
     width: 538px;
+}
+
+#menu {
+    /* left: 0px;
+    top: 0px; */
+    width: 100%;
+    height: 71px;
+    background-color: #ffffff;
+}
+
+.container {
+    margin-bottom: 120px !important;
+}
+
+#footer {
+    /* left: 0px;
+    bottom: 0px;*/
+    width: 100%;
+    height: 120px;
+    background-color: #3597D4;
+    color: #ffffff;
 }
 
 .btn-primary,

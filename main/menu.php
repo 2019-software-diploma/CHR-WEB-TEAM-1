@@ -6,7 +6,8 @@
  */
 ?>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand navbar-light flex-column flex-md-row bd-navbar sticky-top" id="menu">
+
 	<a class="navbar-brand" id="chrLogo" href="../main/index.php"><img src="../images/logo.png"/></a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
@@ -56,19 +57,16 @@
 		}
 		else
 		{
-			echo "<li class='nav-item'>";
-			echo "<a class='nav-link' href='../login/logoff.php' >Logoff</a>";
+			echo "<li class='nav-item dropdown'>";
+			echo "	<a class='nav-link dropdown-toggle' data-toggle='dropdown' href='#' role='button' aria-haspopup='true' aria-expanded='false'>$_SESSION[userName]</a>";
+			echo "	<div class='dropdown-menu'>";
+			echo "		<a class='dropdown-item' href='../login/login.php?manageportal=1' >Manage</a>";
+			echo "		<a class='dropdown-item' href='../login/logoff.php' >Logoff</a>";
+			echo "	</div>";
 			echo "</li>";
 		}
 		?>
 	</ul>
-	<?php
-		if (isset($_SESSION['userName'])) {
-			$username = $_SESSION['userName'];
-			echo "<div align=left><a href='../login/login.php?manageportal=1'>User: $username</a></div>";
-			
-		}
-	?>
 	<form class="form-inline my-2 my-lg-0" action="../journals/journals_list.php" method="GET">
 	  <input class="form-control form-control-sm mb-0 mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="searchStr" name="searchStr">
 	  <button class="btn btn-primary btn-sm my-sm-0" type="submit">Search</button>
@@ -76,9 +74,6 @@
 	</div>
 	
 </nav>
-
-
-
 
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
   <div class="modal-dialog" role="document">
