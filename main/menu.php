@@ -30,7 +30,7 @@
 		  Get Involved
 		</a>
 		<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-		  <a class="dropdown-item" href="../subscribe/subscribe_news.php">Subscribe to Newsletter</a>
+		  <a class="dropdown-item" href="../subscribe/subscribe_news.php">Subscribe to Newsletter </a>
 		  <a class="dropdown-item" href="../appointments/appointment_new.php">Make Appointment</a>
 		</div>
 	  </li>
