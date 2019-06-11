@@ -17,7 +17,7 @@
 			<p>Subscribe to Newsletter!</p> 
 		</div>
 
-		<form class="needs-validation" action=Submit_Sub.php method=POST>
+		<form class="needs-validation" action=submit_sub.php method=POST>
 			<div class="row">
 				<div class="form-group col">
 					<label for="name">Full Name:</label>
