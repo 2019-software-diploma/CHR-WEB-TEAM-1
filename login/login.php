@@ -12,7 +12,9 @@ session_start();
 	include('../main/head.php');
 ?>
 <body>
-
+<?php
+	include('../main/menu.php');
+?>
 <div class="container-fluid">
 <?php
 	// Validate entered password with SHAed password in the database
