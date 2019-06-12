@@ -32,9 +32,10 @@
                     (SELECT CONCAT(s.First_Name, ' ', s.Surname) FROM staff s
                         WHERE s.Staff_Number = j.Staff_Number) AS Journal_Author
                     FROM journals j";
-        
-        //in case of receive a specific search variable
-        if (!empty($_GET['searchStr'])) {
+
+        if (!empty($_GET['staffNumber']))
+            $sql = $sql." WHERE j.Staff_Number = '$_GET[staffNumber]'";
+        else if (!empty($_GET['searchStr'])) {
             $searchStr = $_GET['searchStr'];
             
             //splits string by blank space
@@ -52,8 +53,9 @@
                 $sql = $sql." OR j.Journal_Text LIKE '%$str%'";
             }
         }
+        $sql = $sql." ORDER BY j.Publication_Date DESC";
 
-        $result = mysqli_query($conn, $sql) or die("Error reading books ".mysqli_error($conn));
+        $result = mysqli_query($conn, $sql) or die("Error reading journals ".mysqli_error($conn));
 
         while ($row = mysqli_fetch_array($result))
         {
@@ -79,12 +81,10 @@
             
             echo "<div class='card-footer'>";
             if (!empty($_SESSION['userName']) && $_SESSION['staffNumber'] == $row['Staff_Number']) {
-                echo "<td ><a class='badge badge-primary' href=journals_edit.php?journal_id=$row[Journal_Number]>Edit</a> ";
-                echo "<a class='badge badge-secondary' href='#' data-href='journals_delete.php?journal_id=$row[Journal_Number]' data-toggle=\"modal\" data-target=\"#confirm-delete\">Delete</a></td>";
+                echo "<a class='badge badge-primary' href=journals_edit.php?journal_id=$row[Journal_Number]>Edit</a> ";
+                echo "<a class='badge badge-danger' href='#' data-href='journals_delete.php?journal_id=$row[Journal_Number]' data-toggle=\"modal\" data-target=\"#confirm-delete\">Delete</a> ";
             }
-            else {
-                echo "<td ><a class='badge badge-primary' href=journals_edit.php?journal_id=$row[Journal_Number]>Details</a> ";
-            }
+            echo "<a class='badge badge-secondary' href=journals_view.php?journal_id=$row[Journal_Number]>Details</a>";
             
             echo "</div>";
             echo "      </div>";
