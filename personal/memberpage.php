@@ -18,6 +18,7 @@
 		{
 		  $firstname = $_SESSION['firstname'];
 		  $User_level = $_SESSION['User_level'];
+		  
 		  echo "<h1>Welcome user $firstname, to our member page.</h1>";
 		  echo "<h3>You are Level is $User_level .</h3>";
 		  echo "If wou want view your record, click <a href=\"personal_record.php\">View my Personal record</a><br><br><br>";

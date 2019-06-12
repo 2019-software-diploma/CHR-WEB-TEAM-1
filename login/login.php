@@ -12,9 +12,6 @@ session_start();
 	include('../main/head.php');
 ?>
 <body>
-<?php
-	include('../main/menu.php');
-?>
 
 <div class="container-fluid">
 <?php
@@ -56,7 +53,8 @@ session_start();
 				$_SESSION['email'] = $email;
 				$_SESSION['userName'] = $userName;
 				$_SESSION['staffNumber'] = $staffNumber;
-		
+				
+				include('../main/menu.php');
 				echo "<div align=center><br/>";		
 				echo "<h1>Welcome $userName</h1>";
 				echo "<h3>You have successfully logged in</h3>";

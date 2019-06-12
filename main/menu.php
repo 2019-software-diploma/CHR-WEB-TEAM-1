@@ -60,6 +60,7 @@
 			echo "<li class='nav-item dropdown'>";
 			echo "	<a class='nav-link dropdown-toggle' data-toggle='dropdown' href='#' role='button' aria-haspopup='true' aria-expanded='false'>$_SESSION[userName]</a>";
 			echo "	<div class='dropdown-menu'>";
+			echo "		<a class='dropdown-item' href='../journals/journals_list.php?staffNumber=$_SESSION[staffNumber]' >My Publications</a>";
 			echo "		<a class='dropdown-item' href='../login/login.php?manageportal=1' >Manage</a>";
 			echo "		<a class='dropdown-item' href='../login/logoff.php' >Logoff</a>";
 			echo "	</div>";
