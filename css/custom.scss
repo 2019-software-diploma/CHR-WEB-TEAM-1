@@ -3,9 +3,61 @@ html {
     position: relative;
 }
 
+.navbar {
+    padding: 1px 10px !important;
+}
+
+.navbar,
+.dropdown-item {
+    font-size: 13px !important;
+}
+
+.navbar a#chrLogo,
+.navbar img {
+    padding: 0px !important;
+}
+
+.navbar input {
+    width: 70% !important;
+}
+
+.navbar form {
+    width: 40% !important;
+}
+
+.navbar button {
+    width: 70px !important;
+}
+
+.navbar-nav {
+    width: 538px;
+}
+
+#menu {
+    /* left: 0px;
+    top: 0px; */
+    width: 100%;
+    height: 71px;
+    background-color: #ffffff;
+}
+
+.container {
+    margin-bottom: 120px !important;
+}
+
+#footer {
+    /* left: 0px;
+    bottom: 0px;*/
+    width: 100%;
+    height: 120px;
+    background-color: #3597D4;
+    color: #ffffff;
+}
+
 .btn-primary,
 .btn-secondary,
-.btn-success {
+.btn-success,
+.btn-outline-success {
     margin-top: 20px;
     margin-bottom: 100px;
 }

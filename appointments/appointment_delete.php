@@ -1,13 +1,6 @@
-
 <?php
-/**
- * Author: Edgar Hernandez
- * Date: 01/05/2019
- * Purpose: Page to delete a staff member
- */
  	session_start();
 	
-	//If session variable has done we move to log-off page.
 	if (!isset($_SESSION['userName'])) {
 		header("Location: ../login/logoff.php?sessiondone=1");
 		die();	
@@ -29,12 +22,12 @@
 <h4 align="center">Staff Member</h4>
 
 <?php
-    if (!empty($_GET['staffnumber']))
+    if (!empty($_GET['appointmentid']))
     { 
-        $staffnumber = trim($_GET['staffnumber']);
+        $appointmentid = trim($_GET['appointmentid']);
 
         //Delete the record
-        $sql = "DELETE FROM staff WHERE staff_number = $staffnumber";
+        $sql = "DELETE FROM appointments WHERE Appointment_ID = $appointmentid";
 
         $result = mysqli_query($conn, $sql) or die("Error updating record ".mysqli_error($conn));
 
@@ -42,25 +35,24 @@
 
         if ($numrows == 1)
         {
-            echo "Staff member deleted successfully!<br><br>";
-            echo "<a href='staff_new.php' class='btn btn-primary btn-sm'>New Staff Member</a>";            
+            echo "Appointment deleted successfully!<br><br>";
             echo "&nbsp;&nbsp;&nbsp";
-            echo "<a href='../staff/staff_list.php' class='btn btn-secondary btn-sm' role='button' >Staff List</a>";
+            echo "<a href='../appointments/appointment_list.php' class='btn btn-secondary btn-sm' role='button' >Appointment List</a>";
         }
         else
         {
-            echo "Staff member add failed. $numrows were updated"; 
+            echo "Appointment delete failed. $numrows were updated"; 
             echo "&nbsp;&nbsp;&nbsp";
-            echo "<a href='../staff/staff_list.php' class='btn btn-secondary btn-sm' role='button' >Staff List</a>";
+            echo "<a href='../appointments/appointment_list.php' class='btn btn-secondary btn-sm' role='button' >Appointment List</a>";
         }
 
     }
     else
     {
-        echo "You must supply the Staff Member to be deleted!<br><br>";
+        echo "You must select an Appointment to be deleted!<br><br>";
         echo "<a href='#' onclick='window.history.go(-1); return false;' class='btn btn-secondary btn-sm' role='button' >Go Back</a>";
         echo "&nbsp;&nbsp;&nbsp";
-        echo "<a href='../staff/staff_list.php' class='btn btn-secondary btn-sm' role='button' >Staff List</a>";
+            echo "<a href='../appointments/appointment_list.php' class='btn btn-secondary btn-sm' role='button' >Appointment List</a>";
     }
 
 ?>

@@ -16,7 +16,6 @@
 <?php
 	include('../main/menu.php');
 ?>
-
 <div class="container">
     <?php
         //open db connection
@@ -41,7 +40,7 @@
             //splits string by blank space
             $searchStrs = explode(" ", $searchStr);
 
-            foreach ($searchStrs as $i => $str) {//it goaes through each word
+            foreach ($searchStrs as $i => $str) {//it goes through each word
                 if ($i > 0)//add 'WHERE' for the first iteration and 'OR' for the rest of them
                     $sql = $sql." OR";
                 else
@@ -59,10 +58,11 @@
         while ($row = mysqli_fetch_array($result))
         {
             $title = "$row[Journal_Name] | $row[Journal_Type] #$row[Journal_Number]";
-            $text = "$row[Journal_Text]";
+            $text = $row['Journal_Text'];
+            $author = $row['Journal_Author'];
 
             echo "<div class='card-deck'>";
-            echo "<div class='card border-light mb-3'>";
+            echo "<div class='card bg-light mb-3'>";
             echo "    <div class='card-body'>";
             echo "        <h5 class='card-title'>$title</h5>";
 
@@ -70,21 +70,23 @@
                 echo substr($text, 0, 100);
                 echo "<span class='collapse' id='readmore'>";
                 echo substr($text, 101, strlen($text));
-                echo "</span> <a class='badge badge-pill badge-primary' data-toggle='collapse' data-target='#readmore'>... &raquo;</a>";
+                echo "</span> <a class='badge badge-pill badge-light' data-toggle='collapse' data-target='#readmore'>... &raquo;</a>";
             } else
                 echo "       <p class='card-text'>$text</p>";
 
             $d = strtotime($row['Publication_Date']);
-            echo "        <p class='card-text'><small class='text-muted'>".date('l jS \of F Y', $d)."</small></p>";
+            echo "        <p class='card-text'><small class='text-muted'>$author | ".date('l jS \of F Y', $d)."</small></p>";
             
+            echo "<div class='card-footer'>";
             if (!empty($_SESSION['userName']) && $_SESSION['staffNumber'] == $row['Staff_Number']) {
                 echo "<td ><a class='badge badge-primary' href=journals_edit.php?journal_id=$row[Journal_Number]>Edit</a> ";
-                echo "<a class='badge badge-light' href='#' data-href='journals_delete.php?journal_id=$row[Journal_Number]' data-toggle=\"modal\" data-target=\"#confirm-delete\">Delete</a></td>";
+                echo "<a class='badge badge-secondary' href='#' data-href='journals_delete.php?journal_id=$row[Journal_Number]' data-toggle=\"modal\" data-target=\"#confirm-delete\">Delete</a></td>";
             }
             else {
                 echo "<td ><a class='badge badge-primary' href=journals_edit.php?journal_id=$row[Journal_Number]>Details</a> ";
             }
             
+            echo "</div>";
             echo "      </div>";
             echo "    </div>";
             echo "</div>";
@@ -96,9 +98,9 @@
     </div>	
 
 <?php
-    // include('../main/footer.php');
+    include('../main/footer.php');
     // //close db connection
-    // mysqli_close($conn);
+    mysqli_close($conn);
 ?>
 
 <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

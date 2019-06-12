@@ -8,6 +8,7 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
 <head>
     <meta charset="UTF-8">
 	<title>Caprivi Healthcare Research</title>
@@ -18,6 +19,11 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 	
 </head>
+=======
+<?php
+	include('../main/head.php');
+?>
+>>>>>>> 62a2c57f75c113cebd4c111a1dd5f09b8e51f346
 <body>
 <?php
 	include('../main/menu.php');
