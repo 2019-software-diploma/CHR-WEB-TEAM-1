@@ -70,7 +70,7 @@
 	</ul>
 	<form class="form-inline my-2 my-lg-0" action="../journals/journals_list.php" method="GET">
 	  <input class="form-control form-control-sm mb-0 mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="searchStr" name="searchStr">
-	  <button class="btn btn-primary btn-sm my-sm-0" type="submit">Search</button>
+	  <button class="btn btn-danger btn-sm my-sm-0" type="submit">Search</button>
 	</form>
 	</div>
 	
