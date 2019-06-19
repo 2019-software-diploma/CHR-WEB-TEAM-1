@@ -63,41 +63,16 @@
                 echo "  <p class='text-justify' style=\"font-family: 'nyt-imperial', 'georgia', 'times new roman', 'times', 'serif';\">$journal_text</p>";
                 echo "</div>";
             ?>
-            <a href="journals_list.php" class="btn btn-secondary" role="button">Publication List</a>
-            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#commentsModal">
+            <a href="journals_list.php" class="btn btn-secondary btn-sm" role="button">Publication List</a>
+            <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#commentsModal">
                 Comments
             </button>
         </div>
-        <div class="modal fade" id="commentsModal" tabindex="-1" role="dialog" aria-labelledby="commentsModal" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="commentsModal">Comments</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <?php
-                            include('../comments/comments.php');
-                        ?>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="commentsModal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>	
-
-    <?php
-        include('../main/footer.php');
-        //close db connection
-        mysqli_close($conn);
-     ?>
-     <script>
-        $('#commentsModal').on('shown.bs.modal', function () {
-            $('#commentsModal').trigger('focus')
-        })
-     </script>
-</body>
+        <?php
+            include('../comments/comments.php');
+            include('../main/footer.php');
+            //close db connection
+            mysqli_close($conn);
+        ?>
+    </body>
 </html>

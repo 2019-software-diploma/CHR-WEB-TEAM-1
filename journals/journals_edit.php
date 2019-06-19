@@ -90,7 +90,7 @@
                 echo "</div>";
                 echo "<button type=\"submit\" class=\"btn btn-success\">Submit</button>";
             ?>
-            <a href="journals_list.php" class="btn btn-secondary" role="button">Publicantion List</a>
+            <a href="journals_list.php" class="btn btn-secondary btn-sm" role="button">Publicantion List</a>
         </div>	
 
     <?php

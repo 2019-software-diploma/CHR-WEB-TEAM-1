@@ -1,35 +1,31 @@
-<form action="" method="post">
-    <div class="form-group">
-        <input type="text" name="comment_name" id="comment_name" class="form-control" placeholder="Enter your name">
+<div class="modal right fade" id="commentsModal" tabindex="-1" role="dialog" aria-labelledby="commentsModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="commentsModal">Comments</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="" method="post" novalidate>
+                    <div class="form-group">
+                        <input type="text" name="comment_name" id="comment_name" class="form-control" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="comment_content" id="comment_content"
+                            cols="30" rows="4" class="form-control" placeholder="Share your thoughts."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" id="submit" class="btn btn-info btn-sm" value="Submit">
+                    </div>
+                </form>
+                <span id="comment_message"></span>
+                <div id="display_comment"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-sm" data-dismiss="commentsModal">Close</button>
+            </div>
+        </div>
     </div>
-    <div class="form-group">
-        <textarea name="comment_content" id="comment_content" cols="30" rows="10" class="form-control" placeholder="Comment" rows="5"></textarea>
-    </div>
-    <div class="form-group">
-        <input type="submit" value="submit" id="submit" class="btn btn-info" value="Submit">
-    </div>
-</form>
-<span id="comment_message"></span>
-<br>
-<div id="display_comment"></div>
-
-<script>
-    $(document).ready(function(){
-        $('#comment_form').on('submit', function(event){
-            event.preventDefault();
-            var form_data = $(this).serialize();
-            $.ajax({
-                url:"comment_insert.php",
-                method:"POST",
-                data:form_data,
-                dataType:"JSON",
-                success:function(data){
-                    if(data.error != ''){
-                        $('#comment_form')[0].reset();
-                        $('comment_message').html(data.error);
-                    }
-                }
-            })
-        });
-    });
-</script>
+</div>	
